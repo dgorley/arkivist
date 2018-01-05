@@ -1,0 +1,9 @@
+# Arkivist configuration.
+---
+mail_server: mail.someserver.com
+username: me@example.com
+password: s3cr3t_p@55w0rd
+output_directory: /home/me/email_backups
+max_email_count: 10
+index_template: index_template.html.j2
+delete_after_archive: false

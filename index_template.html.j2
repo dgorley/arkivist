@@ -1,0 +1,52 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Arkivist Email Index</title>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+  <link rel="stylesheet" href="https://milligram.github.io/styles/main.css">
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+    <div class="container">
+    <div class="row">
+        <div class="column">
+            <h1>Arkivist Email Index</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Spam?</th>
+                        <th>Timestamp</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Subject</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for message in messages %}
+                <tr>
+                    <td>{{ message.1.spam }}</td>
+                    <td>{{ message.1.ts }}</td>
+                    <td>{{ message.1.from_addr }}</td>
+                    <td>{{ message.1.to_addr }}</td>
+                    <td><a href="{{ message.0 }}">{{ message.1.subject }}</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+    <script src="https://milligram.github.io/scripts/main.js"></script>
+    <!-- script src="js/scripts.js"></script -->
+ </body>
+</html>
